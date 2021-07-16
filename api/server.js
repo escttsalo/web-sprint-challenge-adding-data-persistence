@@ -1,7 +1,10 @@
 const express = require('express');
+const resourceRouter = require('./resource/router')
 const server = express();
 
 server.use(express.json());
+
+server.use('/api/resources', resourceRouter)
 
 server.use('*', (req, res) => {
     res.status(200).json({message: "We're up!"})
